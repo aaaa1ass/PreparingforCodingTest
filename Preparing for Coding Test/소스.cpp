@@ -7,22 +7,33 @@ int main()
 {
 	int N, M;
 	cin >> N >> M;
-	vector<vector<int>> A(N + 1, vector<int>(N + 1, 0));
-	vector<vector<int>> D(N + 1, vector<int>(N + 1, 0));
+	vector<long> S(N, 0);
+	vector<long> C(M, 0);
+	long answer = 0;
+	cin >> S[0];
 
-	for (int i = 1; i <= N; i++)
+	for (int i = 1; i < N; i++)
 	{
-		for (int j = 1; j <= N; j++)
+		int temp = 0;
+		cin >> temp;
+		S[i] = S[i - 1] + temp;
+	}
+
+	for (int i = 0; i < N; i++)
+	{
+		int remainder = S[i] % M;
+		if (remainder == 0)
 		{
-			cin >> A[i][j];
-			D[i][j] = D[i][j - 1] + D[i - 1][j] - D[i - 1][j - 1] + A[i][j];
+			answer++;
 		}
+		C[remainder]++;
 	}
 	for (int i = 0; i < M; i++)
 	{
-		int x1, y1, x2, y2;
-		cin >> x1 >> y1 >> x2 >> y2;
-		int result = D[x2][y2] - D[x1 - 1][y2] - D[x2][y1 - 1] + D[x1 - 1][y1 - 1];
-		cout << result << "\n";
+		if (C[i] > 1)
+		{
+			answer = answer + (C[i] * (C[i] - 1) / 2);
+		}
 	}
+	cout << answer << "\n";
 }

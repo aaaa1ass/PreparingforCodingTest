@@ -1,17 +1,22 @@
 #include <iostream>
 using namespace std;
 
+
 int main()
 {
-	//int N = 0;
-	string numbers;
-	//cin >> N;
-	cin >> numbers;
-
-	int sum = 0;
-	for (int i = 0; i < numbers.length(); i++)
+	int suNo, quizNo;
+	cin >> suNo >> quizNo;
+	int S[100001] = {  };
+	for (int i = 1; i <= suNo; i++)
 	{
-		sum += numbers[i] - '0';
+		int temp;
+		cin >> temp;
+		S[i] = S[i - 1] + temp;
 	}
-	cout << sum << "\n";
+	for (int i = 0; i < quizNo; i++)
+	{
+		int start, end;
+		cin >> start >> end;
+		cout << S[end] - S[start - 1] << "\n";
+	}
 }

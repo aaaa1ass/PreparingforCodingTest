@@ -26,5 +26,8 @@
     <ClInclude Include="1_구간합구하기.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="2_구간합구하기.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

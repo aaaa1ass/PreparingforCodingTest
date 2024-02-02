@@ -1,20 +1,17 @@
 #include <iostream>
-#include <cstdlib>
-#include <ctime>
 using namespace std;
 
 int main()
 {
-	int findNumber;
-	srand(time(NULL));
-	findNumber = rand() % 100;
+	//int N = 0;
+	string numbers;
+	//cin >> N;
+	cin >> numbers;
 
-	for (int i = 0; i < 100; i++)
+	int sum = 0;
+	for (int i = 0; i < numbers.length(); i++)
 	{
-		if (i == findNumber)
-		{
-			cout << i;
-			break;
-		}
+		sum += numbers[i] - '0';
 	}
+	cout << sum << "\n";
 }

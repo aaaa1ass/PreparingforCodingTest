@@ -1,39 +1,34 @@
 #include <iostream>
-#include <vector>
 using namespace std;
 
 
 int main()
 {
-	int N, M;
-	cin >> N >> M;
-	vector<long> S(N, 0);
-	vector<long> C(M, 0);
-	long answer = 0;
-	cin >> S[0];
+	int N;
+	cin >> N;
+	int count = 1;
+	int start_index = 1;
+	int end_index = 1;
+	int sum = 1;
 
-	for (int i = 1; i < N; i++)
-	{
-		int temp = 0;
-		cin >> temp;
-		S[i] = S[i - 1] + temp;
-	}
-
-	for (int i = 0; i < N; i++)
-	{
-		int remainder = S[i] % M;
-		if (remainder == 0)
+	while (end_index != N) {
+		if (sum == N)
 		{
-			answer++;
+			count++;
+			end_index++;
+			sum = sum + end_index;
 		}
-		C[remainder]++;
-	}
-	for (int i = 0; i < M; i++)
-	{
-		if (C[i] > 1)
+		else if (sum < N)
 		{
-			answer = answer + (C[i] * (C[i] - 1) / 2);
+			end_index++;
+			sum = sum + end_index;
+		}
+		else
+		{
+			sum = sum - start_index;
+			start_index++;
 		}
 	}
-	cout << answer << "\n";
+	cout << count << "\n";
+
 }

@@ -134,6 +134,7 @@
     <ClInclude Include="1_구간합구하기.h" />
     <ClInclude Include="2_구간합구하기.h" />
     <ClInclude Include="3_나머지합.h" />
+    <ClInclude Include="4_연속된자연수의합구하기.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
